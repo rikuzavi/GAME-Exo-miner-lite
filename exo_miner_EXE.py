@@ -1,16 +1,11 @@
 import turtle
 import random
 import time
-import pygame
 import tkinter as tk
 
 screen = turtle.Screen()
 screen.setup(700, 500)
 screen.title("EXO-MINER-Lite")
-pygame.mixer.init()
-pygame.mixer.music.load("sounds/Bayt Lahm(MP3_160K).mp3")
-pygame.mixer.music.set_volume(2)
-pygame.mixer.music.play(loops=-1)
 screen.bgpic('img/main_img.gif')
 head= turtle.Turtle()
 head.hideturtle()
@@ -47,7 +42,6 @@ s=0
 a=0
 c='❤❤❤❤❤❤'
 def START():
-    pygame.mixer.quit()
     global b,head,s,a
     head.clear()
     head.hideturtle()
@@ -138,10 +132,6 @@ def START():
         if bullet.ycor() <= 300:
             for i in range(20):
                 bullet.goto(bullet.xcor(),bullet.ycor()+30)
-        pygame.mixer.init()
-        pygame.mixer.music.load("sounds/shoot.mp3")
-        pygame.mixer.music.set_volume(1)
-        pygame.mixer.music.play()
         if b<=0:
             game_over_bullet()
 
@@ -179,10 +169,6 @@ def START():
     def game_over_bullet():
         global head
         screen.onkey(None,'space')
-        pygame.mixer.init()
-        pygame.mixer.music.load("sounds/gameover.mp3")
-        pygame.mixer.music.set_volume(1)
-        pygame.mixer.music.play(loops=-1)
         screen.onkey(None, "space")
         player.hideturtle()
         enemy.hideturtle()
@@ -195,10 +181,6 @@ def START():
     def game_over_health():
         global head
         screen.onkey(None, 'space')
-        pygame.mixer.init()
-        pygame.mixer.music.load("sounds/gameover.mp3")
-        pygame.mixer.music.set_volume(1)
-        pygame.mixer.music.play(loops=-1)
         screen.onkey(None, "space")
         player.hideturtle()
         enemy.hideturtle()
